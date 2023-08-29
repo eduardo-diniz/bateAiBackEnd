@@ -24,5 +24,5 @@ O **Bate A.I** é um aplicativo mobile desenvolvido com Expo, React Native e Nod
 3. Instale as dependências: `npm install`
 
 ## Como Usar
-- Inicie o servidor: node .\app.js
+- Inicie o servidor: node `.\app.js` 
 - A API estará disponível em: http://localhost:3000
