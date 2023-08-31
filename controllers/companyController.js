@@ -13,6 +13,25 @@ async function createCompany(req, res) {
   }
 }
 
+async function getCompanyByCNPJ(req, res) {
+  try {
+    const company = await Company.findOne({
+      where: {
+        CNPJ: req.params.cnpj,
+      },
+    });
+
+    if (company) {
+      res.json(company);
+    } else {
+      res.status(404).json({ error: 'Company not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
 async function getCompany(req, res) {
   try {
     const company = await Company.findByPk(req.params.id);
@@ -73,4 +92,5 @@ module.exports = {
   getCompanies,
   updateCompany,
   deleteCompany,
+  getCompanyByCNPJ,
 };

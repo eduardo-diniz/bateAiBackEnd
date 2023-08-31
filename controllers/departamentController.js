@@ -54,6 +54,26 @@ module.exports = {
     }
   },
 
+  
+async getDepartmentsByCNPJ(req, res) {
+  try {
+    const { cnpj } = req.params;
+
+    const departments = await Department.findAll({
+      where: { CNPJ: cnpj }
+    });
+
+    if (departments.length > 0) {
+      res.json(departments);
+    } else {
+      res.status(404).json({ error: 'No departments found with the given CNPJ' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+},
+
   async updateDepartment(req, res) {
     try {
       const department = await Department.findByPk(req.params.id);

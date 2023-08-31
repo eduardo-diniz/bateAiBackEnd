@@ -9,5 +9,6 @@ router.get('/companies/:id', companyController.getCompany);
 router.get('/companies', companyController.getCompanies);
 router.put('/companies/:id', companyController.updateCompany);
 router.delete('/companies/:id', companyController.deleteCompany);
+router.get('/companies/by-cnpj/:cnpj', companyController.getCompanyByCNPJ);
 
 module.exports = router;

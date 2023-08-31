@@ -9,5 +9,6 @@ router.get('/departments/:departamentId', departmentController. getByDepartament
 router.get('/departments', departmentController.getDepartments);
 router.put('/departments/:id', departmentController.updateDepartment);
 router.delete('/departments/:id', departmentController.deleteDepartment);
+router.get('/departments/by-cnpj/:cnpj', departmentController.getDepartmentsByCNPJ);
 
 module.exports = router;
